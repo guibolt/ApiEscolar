@@ -1,4 +1,4 @@
-﻿using Core.Util;
+
 using FluentValidation;
 using Model;
 using System;
@@ -6,6 +6,7 @@ using System.Linq;
 
 namespace Core
 {
+
     public class AlunoCore :  AbstractValidator<Aluno>
 
     {
@@ -34,16 +35,10 @@ namespace Core
 
             if (!validar.IsValid) return validar.Errors.Select(c => c.ErrorMessage).ToList();
 
-            var Alunos = new Armazenar().Alunos;
-          Arquivos<Aluno>.Recuperar(Alunos,"Alunos");
 
 
-            if (Alunos.Any(a => a.Documento == _aluno.Documento))
-                return 
-                
-            
 
-
+            return null;
 
         }
 

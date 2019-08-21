@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Core;
 using Microsoft.AspNetCore.Mvc;
+using Model;
 
 namespace ApiEscolar.Controllers
 {
@@ -26,8 +28,10 @@ namespace ApiEscolar.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] Professor professor)
         {
+            var cadastro = new ProfessorCore(professor).Cadastrar();
+            return Ok(cadastro);
         }
 
         // PUT api/values/5

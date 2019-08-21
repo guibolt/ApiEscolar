@@ -1,17 +1,147 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Treinamento 5\\Desktop\\ApiEscolar\\ApiEscolar\\ApiEscolar.csproj": {}
+    "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\ApiEscolar\\ApiEscolar.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Treinamento 5\\Desktop\\ApiEscolar\\ApiEscolar\\ApiEscolar.csproj": {
+    "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\ApiEscolar\\ApiEscolar.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Treinamento 5\\Desktop\\ApiEscolar\\ApiEscolar\\ApiEscolar.csproj",
+        "projectUniqueName": "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\ApiEscolar\\ApiEscolar.csproj",
         "projectName": "ApiEscolar",
-        "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\ApiEscolar\\ApiEscolar\\ApiEscolar.csproj",
+        "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\ApiEscolar\\ApiEscolar.csproj",
         "packagesPath": "C:\\Users\\Treinamento 5\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Treinamento 5\\Desktop\\ApiEscolar\\ApiEscolar\\obj\\",
+        "outputPath": "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\ApiEscolar\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Treinamento 5\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\Core\\Core.csproj"
+              },
+              "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\Model\\Model.csproj": {
+                "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\Model\\Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\Core\\Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\Core\\Core.csproj",
+        "projectName": "Core",
+        "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\Treinamento 5\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Treinamento 5\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\Model\\Model.csproj": {
+                "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\Model\\Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[8.4.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\Model\\Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\Model\\Model.csproj",
+        "projectName": "Model",
+        "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\Model\\Model.csproj",
+        "packagesPath": "C:\\Users\\Treinamento 5\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -41,17 +171,6 @@
       "frameworks": {
         "netcoreapp2.2": {
           "dependencies": {
-            "Microsoft.AspNetCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.2.0, )",
-              "autoReferenced": true
-            },
-            "Microsoft.AspNetCore.Razor.Design": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
               "target": "Package",
