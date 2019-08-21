@@ -1,0 +1,7 @@
+C:\Users\Treinamento 5\Desktop\ApiEscolar\Core\bin\Debug\netcoreapp2.2\Model.dll
+C:\Users\Treinamento 5\Desktop\ApiEscolar\Core\bin\Debug\netcoreapp2.2\Newtonsoft.Json.dll
+C:\Users\Treinamento 5\Desktop\ApiEscolar\Core\bin\Debug\netcoreapp2.2\Newtonsoft.Json.xml
+C:\Users\Treinamento 5\Desktop\ApiEscolar\Core\obj\Debug\netcoreapp2.2\Core.csprojAssemblyReference.cache
+C:\Users\Treinamento 5\Desktop\ApiEscolar\Core\obj\Debug\netcoreapp2.2\Core.csproj.CoreCompileInputs.cache
+C:\Users\Treinamento 5\Desktop\ApiEscolar\Core\obj\Debug\netcoreapp2.2\Core.AssemblyInfoInputs.cache
+C:\Users\Treinamento 5\Desktop\ApiEscolar\Core\obj\Debug\netcoreapp2.2\Core.AssemblyInfo.cs

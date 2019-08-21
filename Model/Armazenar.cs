@@ -9,7 +9,5 @@ namespace Model
         public List<Aluno> Alunos { get; set; } = new List<Aluno>();
         public List<Professor> Prfessores { get; set; } = new List<Professor>();
         public List<Turma> Turmas { get; set; } = new List<Turma>();
-
-
     }
 }
