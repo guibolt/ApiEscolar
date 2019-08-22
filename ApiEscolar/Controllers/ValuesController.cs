@@ -17,6 +17,7 @@ namespace ApiEscolar.Controllers
         public ActionResult<IEnumerable<string>> Get()
         {
             var Todos = new ProfessorCore().BuscarTodos();
+ 
             return (Todos.GetType() == typeof(string)) ? BadRequest(Todos) : Ok(Todos);
         }
 

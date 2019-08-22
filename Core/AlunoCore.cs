@@ -20,19 +20,17 @@ namespace Core
             db = Arquivos<Armazenar>.Recuperar(db, "Alunos");
             if (db == null) db = new Armazenar();
 
-
-
-            //RuleFor(a => a.Nome).MinimumLength(3).NotNull().WithMessage("Nome inválido! é necesario ter no minimo tres letras! e nao pode ser nulo");
-            //RuleFor(a => a.Idade).GreaterThanOrEqualTo(7).NotEmpty().WithMessage("Idade inválida! é necessario ser maior que sete anos.");
-            //RuleFor(a => a.Documento).Length(9, 9).NotNull();
-            //RuleFor(a => a.Email).EmailAddress().NotNull().WithMessage("Email inválido!");
-            //RuleFor(a => a.Endereco).NotNull().WithMessage("Endereco Não pode ser nulo");
-            //RuleFor(a => a.Endereco.Bairro).MinimumLength(7).NotNull().WithMessage("Bairro inválido!");
-            //RuleFor(a => a.Endereco.NumeroCasa).GreaterThan(0).NotEmpty().WithMessage("Endereco da casa inválido.");
-            //RuleFor(a => a.Endereco.Cep).Length(8, 8).NotNull().WithMessage("Cep inválido! é necessario ter 8 digitos.");
-            //RuleFor(a => a.Genero.ToUpper()).NotNull().Must(a => a == "MASCULINO" || a == "FEMININO").WithMessage($"Campo {_aluno.Genero.GetType()} não pode ser nulo");
-            //RuleFor(a => a.NomePai).MinimumLength(3).NotNull().WithMessage("Nome inválido! é necesario ter no minimo tres letras! e nao pode ser nulo");
-            //RuleFor(a => a.NomeMae).MinimumLength(3).NotNull().WithMessage("Nome Inválido! é necesario ter no minimo tres letras! e nao pode ser nulo");
+            RuleFor(a => a.Nome).MinimumLength(3).NotNull().WithMessage("Nome inválido! é necesario ter no minimo tres letras! e nao pode ser nulo");
+            RuleFor(a => a.Idade).GreaterThanOrEqualTo(7).NotEmpty().WithMessage("Idade inválida! é necessario ser maior que sete anos.");
+            RuleFor(a => a.Documento).Length(9, 9).NotNull();
+            RuleFor(a => a.Email).EmailAddress().NotNull().WithMessage("Email inválido!");
+            RuleFor(a => a.Endereco).NotNull().WithMessage("Endereco Não pode ser nulo");
+            RuleFor(a => a.Endereco.Bairro).MinimumLength(7).NotNull().WithMessage("Bairro inválido!");
+            RuleFor(a => a.Endereco.NumeroCasa).GreaterThan(0).NotEmpty().WithMessage("Endereco da casa inválido.");
+            RuleFor(a => a.Endereco.Cep).Length(8, 8).NotNull().WithMessage("Cep inválido! é necessario ter 8 digitos.");
+            RuleFor(a => a.Genero.ToUpper()).NotNull().Must(a => a == "MASCULINO" || a == "FEMININO").WithMessage($"Campo {_aluno.Genero.GetType()} não pode ser nulo");
+            RuleFor(a => a.NomePai).MinimumLength(3).NotNull().WithMessage("Nome inválido! é necesario ter no minimo tres letras! e nao pode ser nulo");
+            RuleFor(a => a.NomeMae).MinimumLength(3).NotNull().WithMessage("Nome Inválido! é necesario ter no minimo tres letras! e nao pode ser nulo");
         }
         public AlunoCore()
         {
@@ -59,7 +57,7 @@ namespace Core
 
         }
 
-        public string Deletar(string id)
+        public dynamic Deletar(string id)
         {
 
             if (!db.Alunos.Any(a => a.Id == id))
@@ -87,6 +85,8 @@ namespace Core
 
         public dynamic Atualizar(string id, Aluno aluno)
         {
+            if (!db.Alunos.Any(a => a.Id == id))
+                return "Não há um aluno com este Id";
 
             var umAluno = db.Alunos.Find(a => a.Id == id);
 

@@ -14,11 +14,7 @@ namespace Core.Util
         {
             try
             {
-<<<<<<< HEAD
-                var file = File.ReadAllText(path);
-                generico = JsonConvert.DeserializeObject<T>(file);
-                return generico;
-=======
+
                 string path = $"{traj}{caminho}.json";
                 if (!File.Exists(path)) File.Create(path).Close();
                 using (StreamReader s = File.OpenText(path))
@@ -31,15 +27,12 @@ namespace Core.Util
             {
                 Console.WriteLine($"Erro na deserialização: {ex.Message}");
                 return default; 
->>>>>>> master
+
             }
         }
         public static void Salvar(T generico, string caminho)
         {
-<<<<<<< HEAD
-            string path = $"{traj}{caminho}.json";
-            using (StreamWriter s = File.CreateText(path))
-=======
+
             try
             {
                 string path = $"{traj}{caminho}.json";
@@ -50,7 +43,7 @@ namespace Core.Util
                 }
             }
             catch(JsonException ex)
->>>>>>> master
+
             {
                 Console.WriteLine($"Erro na Serialização do Objeto: {ex.Message}");
             }

@@ -14,9 +14,8 @@ namespace ApiForSales.Controllers
         public async Task<IActionResult> Post([FromBody] Aluno Aluno)
         {
             var Core = new AlunoCore(Aluno).Cadastrar();
-            return Ok(Core);
-
-        }
+            return (Core is string) ? BadRequest("Esse aluno já esta cadastrado") : Ok(Core);
+         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(string id)
@@ -29,9 +28,17 @@ namespace ApiForSales.Controllers
         public async Task<IActionResult> Get() => Ok(new AlunoCore().BuscarTodos());
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put([FromBody]Aluno aluno, string id) => Ok(new AlunoCore().Atualizar(id,aluno));
+        public async Task<IActionResult> Put([FromBody]Aluno aluno, string id)
+        {
+            var Core = new AlunoCore().Atualizar(id, aluno);
+            return (Core is string) ? BadRequest("Esse aluno não está registrado!") : Ok(Core);
+        }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(string id) => Accepted(new AlunoCore().Deletar(id));
+        public async Task<IActionResult> Delete(string id)
+        {
+            var Core = new AlunoCore().Deletar(id);
+            return (Core is string) ? BadRequest("Esse aluno não está registrado!") : Ok(Core);
+        }
     }
 }
