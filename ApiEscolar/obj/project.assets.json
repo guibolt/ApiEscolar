@@ -13061,11 +13061,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Treinamento 5\\Desktop\\ApiEscola\\ApiEscolar\\ApiEscolar.csproj",
+      "projectUniqueName": "C:\\Users\\Treinamento 5\\Desktop\\other\\ApiEscolar\\ApiEscolar\\ApiEscolar.csproj",
       "projectName": "ApiEscolar",
-      "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\ApiEscola\\ApiEscolar\\ApiEscolar.csproj",
+      "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\other\\ApiEscolar\\ApiEscolar\\ApiEscolar.csproj",
       "packagesPath": "C:\\Users\\Treinamento 5\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Treinamento 5\\Desktop\\ApiEscola\\ApiEscolar\\obj\\",
+      "outputPath": "C:\\Users\\Treinamento 5\\Desktop\\other\\ApiEscolar\\ApiEscolar\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13084,11 +13084,11 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\Treinamento 5\\Desktop\\ApiEscola\\Core\\Core.csproj": {
-              "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\ApiEscola\\Core\\Core.csproj"
+            "C:\\Users\\Treinamento 5\\Desktop\\other\\ApiEscolar\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\other\\ApiEscolar\\Core\\Core.csproj"
             },
-            "C:\\Users\\Treinamento 5\\Desktop\\ApiEscola\\Model\\Model.csproj": {
-              "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\ApiEscola\\Model\\Model.csproj"
+            "C:\\Users\\Treinamento 5\\Desktop\\other\\ApiEscolar\\Model\\Model.csproj": {
+              "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\other\\ApiEscolar\\Model\\Model.csproj"
             }
           }
         }
