@@ -7692,11 +7692,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\Core\\Core.csproj",
+      "projectUniqueName": "C:\\Users\\Treinamento 5\\Desktop\\ApiEscola\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\Core\\Core.csproj",
+      "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\ApiEscola\\Core\\Core.csproj",
       "packagesPath": "C:\\Users\\Treinamento 5\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\Core\\obj\\",
+      "outputPath": "C:\\Users\\Treinamento 5\\Desktop\\ApiEscola\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -7715,8 +7715,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\Model\\Model.csproj": {
-              "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\Model\\Model.csproj"
+            "C:\\Users\\Treinamento 5\\Desktop\\ApiEscola\\Model\\Model.csproj": {
+              "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\ApiEscola\\Model\\Model.csproj"
             }
           }
         }
@@ -7748,13 +7748,5 @@
         "warn": true
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema ao ler o arquivo de cache C:\\Users\\Treinamento 5\\Desktop\\Nova pasta (2)\\Core\\obj\\Core.csproj.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

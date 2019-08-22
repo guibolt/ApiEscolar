@@ -17,16 +17,14 @@ namespace Core.Util
             using (StreamReader s = File.OpenText(path))
             {
                 var file = File.ReadAllText(path);
-                var paut = JsonConvert.DeserializeObject<T>(file);
-                return paut;
+                generico = JsonConvert.DeserializeObject<T>(file);
+                return generico;
             }
         }
         public static void Salvar(T generico, string caminho)
         {
             string path = $"{traj}{caminho}.json";
-            if (!File.Exists(path)) File.Create(path).Close();
-
-            using (StreamWriter s = File.AppendText(path))
+            using (StreamWriter s = File.CreateText(path))
             {
                 string G = JsonConvert.SerializeObject(generico);
                 s.WriteLine(G);
