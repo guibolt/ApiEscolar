@@ -30,7 +30,7 @@ namespace Core
         {
             var results = Validate(_professor);
 
-            if (!results.IsValid) return results.Errors.Select(m => m.ErrorMessage).ToList();
+            if (!results.IsValid) return (false,results.Errors.Select(m => m.ErrorMessage).ToList());
 
             db = Arquivos<Armazenar>.Recuperar(db,"Professores");
 
