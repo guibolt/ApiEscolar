@@ -12,22 +12,47 @@ namespace Core.Util
         static string traj = AppDomain.CurrentDomain.BaseDirectory;
         public static T Recuperar(T generico, string caminho)
         {
-            string path = $"{traj}{caminho}.json";
-            if (!File.Exists(path)) File.Create(path).Close();
-            using (StreamReader s = File.OpenText(path))
+            try
             {
+<<<<<<< HEAD
                 var file = File.ReadAllText(path);
                 generico = JsonConvert.DeserializeObject<T>(file);
                 return generico;
+=======
+                string path = $"{traj}{caminho}.json";
+                if (!File.Exists(path)) File.Create(path).Close();
+                using (StreamReader s = File.OpenText(path))
+                {
+                    var file = File.ReadAllText(path);
+                    generico = JsonConvert.DeserializeObject<T>(file);
+                    return generico;
+                }
+            }catch(JsonException ex)
+            {
+                Console.WriteLine($"Erro na deserialização: {ex.Message}");
+                return default; 
+>>>>>>> master
             }
         }
         public static void Salvar(T generico, string caminho)
         {
+<<<<<<< HEAD
             string path = $"{traj}{caminho}.json";
             using (StreamWriter s = File.CreateText(path))
+=======
+            try
             {
-                string G = JsonConvert.SerializeObject(generico);
-                s.WriteLine(G);
+                string path = $"{traj}{caminho}.json";
+                using (StreamWriter file = File.CreateText(path))
+                {
+                    string strResultadoJson = JsonConvert.SerializeObject(generico);
+                    file.Write($"{strResultadoJson}");
+                }
+            }
+            catch(JsonException ex)
+>>>>>>> master
+            {
+                Console.WriteLine($"Erro na Serialização do Objeto: {ex.Message}");
             }
         }
     }
