@@ -9,6 +9,8 @@ namespace Core
     public class ProfessorCore : AbstractValidator<Professor> 
     {
         private Professor _professor { get; set; }
+        private Armazenar db = new Armazenar();
+
         public ProfessorCore(Professor professor)
         {
             _professor = professor;
@@ -19,7 +21,7 @@ namespace Core
             RuleFor(e => e.Documento).NotNull().WithMessage("O documento não pode ser nulo.");
             //RuleFor(a => a.Endereco.Bairro).MinimumLength(6).NotNull().WithMessage("Bairro inválido!");
             //RuleFor(a => a.Endereco.NumeroCasa).GreaterThan(0).NotNull().WithMessage("Endereço da casa inválido.");
-            //RuleFor(a => a.Endereco.Cep).Length(8, 8).NotNull().WithMessage("CEP Inválido! é necessario ter 8 digitos.");
+            //RuleFor(a => a.Endereco.Cep).Length(8, 8).NotNull().WithMessage("CEP Inválido! é necessario ter 8 digitos."); 
         }
 
         public ProfessorCore(){}
@@ -30,26 +32,35 @@ namespace Core
 
             if (!results.IsValid) return results.Errors.Select(m => m.ErrorMessage).ToList();
 
-            var db = new Armazenar();
-            Arquivos<Armazenar>.Recuperar(db,"Professores");
-            if (!db.Prfessores.Exists(e => e.Id.Equals(_professor.Id)))
+            db = Arquivos<Armazenar>.Recuperar(db,"Professores");
+
+            if (!db.Prfessores.Exists(e => e.Documento.Equals(_professor.Documento)))
             {
                 db.Prfessores.Add(_professor);
                 Arquivos<Armazenar>.Salvar(db, "Professores");
                 return _professor;
             }
-            else
-                return  "Já existe um cliente com esse ID." ;
+                return  "Já existe um professor com esse documento com esse ID." ;
 
         }
-        public dynamic BuscarId()
+        public dynamic BuscarId(string Id)
         {
-            throw new System.NotImplementedException();
+           
+            db = Arquivos<Armazenar>.Recuperar(db, "Professores");
+
+            if (db.Prfessores.Exists(e => e.Id.Equals(Id))) return db.Prfessores.Single(e => e.Id.Equals(Id));
+         
+            return "Não existe nenhum professor com esse ID por favor insira um id válido.";
         }
 
         public dynamic BuscarTodos()
         {
-            throw new System.NotImplementedException();
+
+            db = Arquivos<Armazenar>.Recuperar(db, "Professores");
+
+            if (db.Prfessores.Any()) return db.Prfessores;
+
+            return "Não existe nenhum professor cadastrado, Por favor cadastre.";
         }
         public dynamic Atualizar()
         {

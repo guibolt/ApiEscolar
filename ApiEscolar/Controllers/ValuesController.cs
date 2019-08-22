@@ -16,14 +16,16 @@ namespace ApiEscolar.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            var Todos = new ProfessorCore().BuscarTodos();
+            return (Todos.GetType() == typeof(string)) ? BadRequest(Todos) : Ok(Todos);
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<string> Get(string id)
         {
-            return "value";
+            var Professor = new ProfessorCore().BuscarId(id);
+            return (Professor.GetType() == typeof(string)) ? BadRequest(Professor) : Ok(Professor);
         }
 
         // POST api/values
@@ -31,7 +33,7 @@ namespace ApiEscolar.Controllers
         public IActionResult Post([FromBody] Professor professor)
         {
             var cadastro = new ProfessorCore(professor).Cadastrar();
-            return Ok(cadastro);
+            return (cadastro.GetType() == typeof(string)) ? BadRequest(cadastro) : Ok(cadastro);
         }
 
         // PUT api/values/5
