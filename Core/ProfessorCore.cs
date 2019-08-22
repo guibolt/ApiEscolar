@@ -1,7 +1,6 @@
 ﻿using Core.Util;
 using FluentValidation;
 using Model;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Core
@@ -9,12 +8,13 @@ namespace Core
     public class ProfessorCore : AbstractValidator<Professor> 
     {
         private Professor _professor { get; set; }
-        private Armazenar db = new Armazenar();
+        private Armazenar Db { get; set; } 
 
         public ProfessorCore(Professor professor)
         {
             _professor = professor;
-
+            Db = Arquivos<Armazenar>.Recuperar(Db, "Professores");
+            if (Db == null) Db = new Armazenar();
             RuleFor(e => e.Nome).MinimumLength(3).NotNull().WithMessage("O nome deve ser preenchido e deve ter o mínimo de 3 caracteres.");
             RuleFor(e => e.Genero).NotNull().MinimumLength(5).WithMessage("O genero não pode ser nulo e deve conter no mínimo 3 caracteres.");
             RuleFor(e => e.Email).NotNull().EmailAddress().WithMessage("E-mail não pode ser nulo e deve ser um endereço de e-mail válido.");
@@ -24,7 +24,10 @@ namespace Core
             //RuleFor(a => a.Endereco.Cep).Length(8, 8).NotNull().WithMessage("CEP Inválido! é necessario ter 8 digitos."); 
         }
 
-        public ProfessorCore(){}
+        public ProfessorCore(){
+             Db = Arquivos<Armazenar>.Recuperar(Db, "Professores");
+            if (Db == null) Db = new Armazenar();
+        }
 
         public dynamic Cadastrar()
         {
@@ -32,12 +35,12 @@ namespace Core
 
             if (!results.IsValid) return results.Errors.Select(m => m.ErrorMessage).ToList();
 
-            db = Arquivos<Armazenar>.Recuperar(db,"Professores");
+      
 
-            if (!db.Prfessores.Exists(e => e.Documento.Equals(_professor.Documento)))
+            if (!Db.Prfessores.Exists(e => e.Documento.Equals(_professor.Documento)))
             {
-                db.Prfessores.Add(_professor);
-                Arquivos<Armazenar>.Salvar(db, "Professores");
+                Db.Prfessores.Add(_professor);
+                Arquivos<Armazenar>.Salvar(Db, "Professores");
                 return _professor;
             }
                 return  "Já existe um professor com esse documento com esse ID." ;
@@ -45,10 +48,7 @@ namespace Core
         }
         public dynamic BuscarId(string Id)
         {
-           
-            db = Arquivos<Armazenar>.Recuperar(db, "Professores");
-
-            if (db.Prfessores.Exists(e => e.Id.Equals(Id))) return db.Prfessores.Single(e => e.Id.Equals(Id));
+            if (Db.Prfessores.Exists(e => e.Id.Equals(Id))) return Db.Prfessores.Single(e => e.Id.Equals(Id));
          
             return "Não existe nenhum professor com esse ID por favor insira um id válido.";
         }
@@ -56,9 +56,7 @@ namespace Core
         public dynamic BuscarTodos()
         {
 
-            db = Arquivos<Armazenar>.Recuperar(db, "Professores");
-
-            if (db.Prfessores.Any()) return db.Prfessores;
+            if (Db.Prfessores.Any()) return Db.Prfessores;
 
             return "Não existe nenhum professor cadastrado, Por favor cadastre.";
         }
@@ -66,9 +64,15 @@ namespace Core
         {
             throw new System.NotImplementedException();
         }  
-        public void Deletar()
+        public dynamic Deletar(string Id)
         {
-            throw new System.NotImplementedException();
+            if (Db.Prfessores.Exists(e => e.Id.Equals(Id))) {
+                Db.Prfessores.Remove(Db.Prfessores.Single(e => e.Id.Equals(Id)));
+                Arquivos<Armazenar>.Salvar(Db, "Professores");
+                return "Professor deletado com Sucesso.";
+            }else if (Db.Prfessores.Any()) return "Não existe nenhum Professor Cadastrado para poder ser deletado.";
+
+            return "Não existe nenhum Professor com esse ID por favor tente novamente com um ID válido.";
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Core.Util
                 if (!File.Exists(path)) File.Create(path).Close();
                 using (StreamReader s = File.OpenText(path))
                 {
-                    var file = File.ReadAllText(path);
+                    var file = File.ReadAllText(path); 
                     generico = JsonConvert.DeserializeObject<T>(file);
                     return generico;
                 }
