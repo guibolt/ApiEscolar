@@ -19,9 +19,10 @@ namespace Core
             RuleFor(e => e.Genero).NotNull().MinimumLength(5).WithMessage("O genero não pode ser nulo e deve conter no mínimo 3 caracteres.");
             RuleFor(e => e.Email).NotNull().EmailAddress().WithMessage("E-mail não pode ser nulo e deve ser um endereço de e-mail válido.");
             RuleFor(e => e.Documento).NotNull().WithMessage("O documento não pode ser nulo.");
-            //RuleFor(a => a.Endereco.Bairro).MinimumLength(6).NotNull().WithMessage("Bairro inválido!");
-            //RuleFor(a => a.Endereco.NumeroCasa).GreaterThan(0).NotNull().WithMessage("Endereço da casa inválido.");
-            //RuleFor(a => a.Endereco.Cep).Length(8, 8).NotNull().WithMessage("CEP Inválido! é necessario ter 8 digitos."); 
+            RuleFor(a => a.Endereco.Bairro).MinimumLength(6).NotNull().WithMessage("Bairro inválido!");
+            RuleFor(a => a.Endereco.NumeroCasa).GreaterThan(0).NotNull().WithMessage("Endereço da casa inválido.");
+            RuleFor(a => a.Endereco.Cep).Length(8, 8).NotNull().WithMessage("CEP Inválido! é necessario ter 8 digitos.");
+            RuleFor(e => e.Materias).NotEmpty().WithMessage("Por favor insira ao menos uma matéria.");
         }
 
         public ProfessorCore(){
@@ -60,10 +61,48 @@ namespace Core
 
             return "Não existe nenhum professor cadastrado, Por favor cadastre.";
         }
-        public dynamic Atualizar()
+        public dynamic Atualizar(string id, Professor professor)
         {
-            throw new System.NotImplementedException();
-        }  
+            if (!Db.Prfessores.Any(a => a.Id == id))
+                return "Não há um professor com este Id";
+
+            var umProfessor = Db.Prfessores.Find(a => a.Id == id);
+
+
+            if (professor.Nome != null)
+                umProfessor.Nome = professor.Nome;
+
+            if (professor.Idade != 0)
+                umProfessor.Idade = professor.Idade;
+
+            if (professor.Genero != null)
+                umProfessor.Genero = professor.Genero;
+
+            if (professor.Endereco.NumeroCasa != 0)
+                umProfessor.Endereco.NumeroCasa = professor.Endereco.NumeroCasa;
+
+            if (professor.Endereco.Complemento != null)
+                umProfessor.Endereco.Complemento = professor.Endereco.Complemento;
+
+            if (professor.Endereco.Cep != null)
+                umProfessor.Endereco.Cep = professor.Endereco.Cep;
+
+            if (professor.Endereco.Bairro != null)
+                umProfessor.Endereco.Bairro = professor.Endereco.Bairro;
+
+            if (professor.Email != null)
+                umProfessor.Email = professor.Email;
+
+            if (!professor.Materias.Any())
+                umProfessor.Materias = professor.Materias;
+
+            if (professor.Salario == 0.0)
+                umProfessor.Salario = professor.Salario;
+
+            Arquivos<Armazenar>.Salvar(Db, "Professores");
+
+            return umProfessor;
+        }
         public dynamic Deletar(string Id)
         {
             if (Db.Prfessores.Exists(e => e.Id.Equals(Id))) {

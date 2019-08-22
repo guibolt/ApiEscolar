@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Core;
 using Microsoft.AspNetCore.Mvc;
 using Model;
@@ -14,7 +15,7 @@ namespace ApiForSales.Controllers
         public async Task<IActionResult> Post([FromBody] Aluno Aluno)
         {
             var Core = new AlunoCore(Aluno).Cadastrar();
-            return (Core is string) ? BadRequest("Esse aluno já esta cadastrado") : Ok(Core);
+            return (Core is string || Core is List<string>) ? BadRequest("Esse aluno já esta cadastrado") : Ok(Core);
          }
 
         [HttpGet("{id}")]
