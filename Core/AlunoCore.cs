@@ -43,17 +43,15 @@ namespace Core
         {
             var validar = Validate(_aluno);
 
-            if (!validar.IsValid) return validar.Errors.Select(c => c.ErrorMessage).ToList();
+            if (!validar.IsValid) return (false,validar.Errors.Select(c => c.ErrorMessage).ToList());
 
             if (db.Alunos.Any(a => a.Documento == _aluno.Documento))
-                return "Esse aluno ja está cadastrado!";
+                return (false,"Esse aluno ja está cadastrado!");
 
-
-            var umAluno = _aluno;
-            db.Alunos.Add(umAluno);
+            db.Alunos.Add(_aluno);
 
             Arquivos<Armazenar>.Salvar(db, "Alunos");
-            return _aluno;
+            return (true, _aluno);
 
         }
 
@@ -61,13 +59,13 @@ namespace Core
         {
 
             if (!db.Alunos.Any(a => a.Id == id))
-                return "Esse aluno não está registrado";
+                return (false,"Esse aluno não está registrado");
 
             var umAluno = db.Alunos.Find(c => c.Id == id);
 
             db.Alunos.Remove(umAluno);
             Arquivos<Armazenar>.Salvar(db, "Alunos");
-            return "Aluno removido!";
+            return (true,"Aluno removido!");
         }
 
         public dynamic BuscarTodos() => db.Alunos.OrderBy(a => a.Nome);
@@ -76,9 +74,9 @@ namespace Core
         public dynamic BuscarId(string id)
         {
             if (!db.Alunos.Any(a => a.Id == id))
-                return "Não há um aluno com este Id";
+                return (false,"Não há um aluno com este Id");
 
-            return db.Alunos.Find(a => a.Id == id);
+            return (true,db.Alunos.Find(a => a.Id == id));
 
         }
 
@@ -86,7 +84,7 @@ namespace Core
         public dynamic Atualizar(string id, Aluno aluno)
         {
             if (!db.Alunos.Any(a => a.Id == id))
-                return "Não há um aluno com este Id";
+                return (false,"Não há um aluno com este Id");
 
             var umAluno = db.Alunos.Find(a => a.Id == id);
 
@@ -124,7 +122,7 @@ namespace Core
 
             Arquivos<Armazenar>.Salvar(db, "Alunos");
 
-            return umAluno;
+            return (true,umAluno);
         }
     }
 }
