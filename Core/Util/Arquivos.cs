@@ -14,6 +14,7 @@ namespace Core.Util
         {
             try
             {
+
                 string path = $"{traj}{caminho}.json";
                 if (!File.Exists(path)) File.Create(path).Close();
                 using (StreamReader s = File.OpenText(path))
@@ -26,10 +27,12 @@ namespace Core.Util
             {
                 Console.WriteLine($"Erro na deserialização: {ex.Message}");
                 return default; 
+
             }
         }
         public static void Salvar(T generico, string caminho)
         {
+
             try
             {
                 string path = $"{traj}{caminho}.json";
@@ -40,6 +43,7 @@ namespace Core.Util
                 }
             }
             catch(JsonException ex)
+
             {
                 Console.WriteLine($"Erro na Serialização do Objeto: {ex.Message}");
             }

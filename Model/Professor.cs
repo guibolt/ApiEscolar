@@ -8,6 +8,7 @@ namespace Model
 
     {
         public double Salario { get; set; }
-        public List<Materia> Materia { get; set; } = new List<Materia>();
+        public List<Materia> Materias { get; set; } = new List<Materia>();
+
     }
 }
