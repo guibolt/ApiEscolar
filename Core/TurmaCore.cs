@@ -13,7 +13,7 @@ namespace Core
         public Armazenar db { get; set; }
         public TurmaCore()
         {
-            db = Arquivos<Armazenar>.Recuperar(db, "Turmas");
+            db = Arquivos<Armazenar>.Recuperar(db);
             if (db == null) db = new Armazenar();
 
             RuleFor(c => c.Alunos).NotNull().NotEmpty();
@@ -23,7 +23,7 @@ namespace Core
         public TurmaCore(Turma turma)
         {
             _turma = turma;
-            db = Arquivos<Armazenar>.Recuperar(db, "Turmas");
+            db = Arquivos<Armazenar>.Recuperar(db);
             if (db == null) db = new Armazenar();
         }
 
@@ -40,7 +40,7 @@ namespace Core
 
             db.Turmas.Add(_turma);
 
-            Arquivos<Armazenar>.Salvar(db, "Turmas");
+            Arquivos<Armazenar>.Salvar(db);
 
             return (true, _turma);
         }
@@ -71,8 +71,26 @@ namespace Core
             if (turma.Alunos != null)
                 umaTurma.Alunos = turma.Alunos;
 
-            Arquivos<Armazenar>.Salvar(db, "Turmas");
+            Arquivos<Armazenar>.Salvar(db);
             return (true, umaTurma);
+
+        }
+
+        public dynamic Deletar(int id)
+        {
+
+            if (!db.Turmas.Any(c => c.Id == id))
+                return (false, "Não há uma turma com este Id");
+
+            var umaTurma = db.Turmas.Find(t => t.Id == id);
+
+
+            db.Turmas.Remove(umaTurma);
+
+
+            Arquivos<Armazenar>.Salvar(db);
+            return (true, umaTurma);
+
 
         }
     }

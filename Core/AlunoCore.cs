@@ -17,7 +17,7 @@ namespace Core
         {
             _aluno = Aluno;
 
-            db = Arquivos<Armazenar>.Recuperar(db, "Alunos");
+            db = Arquivos<Armazenar>.Recuperar(db);
             if (db == null) db = new Armazenar();
 
             RuleFor(a => a.Nome).MinimumLength(3).NotNull().WithMessage("Nome inválido! é necesario ter no minimo tres letras! e nao pode ser nulo");
@@ -35,7 +35,7 @@ namespace Core
         public AlunoCore()
         {
 
-            db = Arquivos<Armazenar>.Recuperar(db, "Alunos");
+            db = Arquivos<Armazenar>.Recuperar(db);
             if (db == null) db = new Armazenar();
         }
 
@@ -50,7 +50,7 @@ namespace Core
 
             db.Alunos.Add(_aluno);
 
-            Arquivos<Armazenar>.Salvar(db, "Alunos");
+            Arquivos<Armazenar>.Salvar(db);
             return (true, _aluno);
 
         }
@@ -64,7 +64,7 @@ namespace Core
             var umAluno = db.Alunos.Find(c => c.Id == id);
 
             db.Alunos.Remove(umAluno);
-            Arquivos<Armazenar>.Salvar(db, "Alunos");
+            Arquivos<Armazenar>.Salvar(db);
             return (true,"Aluno removido!");
         }
 
@@ -120,7 +120,7 @@ namespace Core
                 umAluno.Email = aluno.Email;
 
 
-            Arquivos<Armazenar>.Salvar(db, "Alunos");
+            Arquivos<Armazenar>.Salvar(db);
 
             return (true,umAluno);
         }
