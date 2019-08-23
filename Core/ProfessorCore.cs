@@ -13,7 +13,7 @@ namespace Core
         public ProfessorCore(Professor professor)
         {
             _professor = professor;
-            Db = Arquivos<Armazenar>.Recuperar(Db, "Professores");
+            Db = Arquivos<Armazenar>.Recuperar(Db);
             if (Db == null) Db = new Armazenar();
             RuleFor(e => e.Nome).MinimumLength(3).NotNull().WithMessage("O nome deve ser preenchido e deve ter o mínimo de 3 caracteres.");
             RuleFor(e => e.Genero).NotNull().MinimumLength(5).WithMessage("O genero não pode ser nulo e deve conter no mínimo 3 caracteres.");
@@ -26,7 +26,7 @@ namespace Core
         }
 
         public ProfessorCore(){
-             Db = Arquivos<Armazenar>.Recuperar(Db, "Professores");
+             Db = Arquivos<Armazenar>.Recuperar(Db);
             if (Db == null) Db = new Armazenar();
         }
 
@@ -41,7 +41,7 @@ namespace Core
             if (!Db.Prfessores.Exists(e => e.Documento.Equals(_professor.Documento)))
             {
                 Db.Prfessores.Add(_professor);
-                Arquivos<Armazenar>.Salvar(Db, "Professores");
+                Arquivos<Armazenar>.Salvar(Db);
                 return _professor;
             }
                 return  "Já existe um professor com esse documento com esse ID." ;
@@ -99,7 +99,7 @@ namespace Core
             if (professor.Salario == 0.0)
                 umProfessor.Salario = professor.Salario;
 
-            Arquivos<Armazenar>.Salvar(Db, "Professores");
+            Arquivos<Armazenar>.Salvar(Db);
 
             return umProfessor;
         }
@@ -107,7 +107,7 @@ namespace Core
         {
             if (Db.Prfessores.Exists(e => e.Id.Equals(Id))) {
                 Db.Prfessores.Remove(Db.Prfessores.Single(e => e.Id.Equals(Id)));
-                Arquivos<Armazenar>.Salvar(Db, "Professores");
+                Arquivos<Armazenar>.Salvar(Db);
                 return "Professor deletado com Sucesso.";
             }else if (Db.Prfessores.Any()) return "Não existe nenhum Professor Cadastrado para poder ser deletado.";
 

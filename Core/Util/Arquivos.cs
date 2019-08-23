@@ -10,12 +10,12 @@ namespace Core.Util
     {
 
         static string traj = AppDomain.CurrentDomain.BaseDirectory;
-        public static T Recuperar(T generico, string caminho)
+        public static T Recuperar(T generico)
         {
             try
             {
 
-                string path = $"{traj}{caminho}.json";
+                string path = $"{traj}Turmas.json";
                 if (!File.Exists(path)) File.Create(path).Close();
                 using (StreamReader s = File.OpenText(path))
                 {
@@ -30,12 +30,12 @@ namespace Core.Util
 
             }
         }
-        public static void Salvar(T generico, string caminho)
+        public static void Salvar(T generico)
         {
 
             try
             {
-                string path = $"{traj}{caminho}.json";
+                string path = $"{traj}Turmas.json";
                 using (StreamWriter file = File.CreateText(path))
                 {
                     string strResultadoJson = JsonConvert.SerializeObject(generico);
