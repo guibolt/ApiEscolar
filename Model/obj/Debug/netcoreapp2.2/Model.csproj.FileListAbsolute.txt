@@ -52,3 +52,12 @@ C:\Users\Treinamento 2\Desktop\ApiEscolar\Model\obj\Debug\netcoreapp2.2\Model.As
 C:\Users\Treinamento 2\Desktop\ApiEscolar\Model\obj\Debug\netcoreapp2.2\Model.AssemblyInfo.cs
 C:\Users\Treinamento 2\Desktop\ApiEscolar\Model\obj\Debug\netcoreapp2.2\Model.dll
 C:\Users\Treinamento 2\Desktop\ApiEscolar\Model\obj\Debug\netcoreapp2.2\Model.pdb
+C:\Users\Treinamento 5\Desktop\Continue\ApiEscolar\Model\bin\Debug\netcoreapp2.2\Model.deps.json
+C:\Users\Treinamento 5\Desktop\Continue\ApiEscolar\Model\bin\Debug\netcoreapp2.2\Model.dll
+C:\Users\Treinamento 5\Desktop\Continue\ApiEscolar\Model\bin\Debug\netcoreapp2.2\Model.pdb
+C:\Users\Treinamento 5\Desktop\Continue\ApiEscolar\Model\obj\Debug\netcoreapp2.2\Model.csprojAssemblyReference.cache
+C:\Users\Treinamento 5\Desktop\Continue\ApiEscolar\Model\obj\Debug\netcoreapp2.2\Model.csproj.CoreCompileInputs.cache
+C:\Users\Treinamento 5\Desktop\Continue\ApiEscolar\Model\obj\Debug\netcoreapp2.2\Model.AssemblyInfoInputs.cache
+C:\Users\Treinamento 5\Desktop\Continue\ApiEscolar\Model\obj\Debug\netcoreapp2.2\Model.AssemblyInfo.cs
+C:\Users\Treinamento 5\Desktop\Continue\ApiEscolar\Model\obj\Debug\netcoreapp2.2\Model.dll
+C:\Users\Treinamento 5\Desktop\Continue\ApiEscolar\Model\obj\Debug\netcoreapp2.2\Model.pdb

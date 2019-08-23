@@ -38,7 +38,7 @@ namespace Core
                 return (false, "Essa turma ja está cadastrada!");
 
             _turma.Alunos.ForEach(c => c.TurmaAluno(db.Alunos.Single(d => d.Id == c.Id)));
-            _turma.Professores.ForEach(c => c.TurmaProf(db.Prfessores.Single(d => d.Id == c.Id)));
+            _turma.Professores.ForEach(c => c.TurmaProf(db.lstProfessores.Single(d => d.Id == c.Id)));
 
             db.Turmas.Add(_turma);
 
@@ -47,8 +47,6 @@ namespace Core
             return (true, _turma);
         }
 
-<<<<<<< HEAD
-=======
         public dynamic CadastrarAlunoProfessor(int idTurma, string idProfessor)
         {
             if (!db.Turmas.Any(t => t.Id == idTurma))
@@ -91,7 +89,7 @@ namespace Core
             return (true, umaTurma);
         }
 
->>>>>>> dbf244a2686844434cb5c361630a8bb9f579bbcc
+
         public dynamic BuscarId(int id)
         {
             if (!db.Turmas.Any(a => a.Id == id))
@@ -143,7 +141,7 @@ namespace Core
 
         private bool ValidaProf(Professor professor)
         {
-            if (db.Prfessores.SingleOrDefault(c => c.Id == professor.Id) == null) return false;
+            if (db.lstProfessores.SingleOrDefault(c => c.Id == professor.Id) == null) return false;
             return true;
         }
         private bool ValidaAluno(Aluno aluno)
