@@ -13,7 +13,7 @@ namespace Core
         public Armazenar db { get; set; }
         public TurmaCore()
         {
-            db = Arquivos<Armazenar>.Recuperar(db);
+            db = Arquivos.Recuperar(db);
             if (db == null) db = new Armazenar();
 
             RuleFor(c => c.Alunos).NotNull().NotEmpty();
@@ -23,7 +23,7 @@ namespace Core
         public TurmaCore(Turma turma)
         {
             _turma = turma;
-            db = Arquivos<Armazenar>.Recuperar(db);
+            db = Arquivos.Recuperar(db);
             if (db == null) db = new Armazenar();
         }
 
@@ -40,9 +40,51 @@ namespace Core
 
             db.Turmas.Add(_turma);
 
-            Arquivos<Armazenar>.Salvar(db);
+            Arquivos.Salvar(db);
 
             return (true, _turma);
+        }
+
+        public dynamic CadastrarAlunoProfessor(int idTurma, string idProfessor)
+        {
+            if (!db.Turmas.Any(t => t.Id == idTurma))
+                return (false, "Não há uma turma registrada com este Id");
+
+            var umaTurma = db.Turmas.Find(t => t.Id == idTurma);
+
+            if(!db.Prfessores.Any(p => p.Id == idProfessor))
+                return (false, "Não há um professor registrado com este Id");
+
+            var umProfessor = db.Prfessores.Find(p => p.Id == idProfessor);
+
+            umaTurma.Professores.Add(umProfessor);
+            Arquivos.Salvar(db);
+
+            return (true, umaTurma);
+
+        }
+
+        public dynamic CadastrarAlunoTurma(int idTurma, string idAluno)
+        {
+        
+
+            if (!db.Turmas.Any(t => t.Id == idTurma))
+                return (false, "Não há uma turma registrada com este Id");
+
+            var umaTurma = db.Turmas.Find(t => t.Id == idTurma);
+
+
+            if (!db.Alunos.Any(a => a.Id == idAluno))
+                return (false, "Não há um aluno registrado com este id");
+
+            var umAluno = db.Alunos.Find(a => a.Id == idAluno);
+
+
+            umaTurma.Alunos.Add(umAluno);
+
+            Arquivos.Salvar(db);
+
+            return (true, umaTurma);
         }
 
         public dynamic BuscarId(int id)
@@ -71,7 +113,7 @@ namespace Core
             if (turma.Alunos != null)
                 umaTurma.Alunos = turma.Alunos;
 
-            Arquivos<Armazenar>.Salvar(db);
+            Arquivos.Salvar(db);
             return (true, umaTurma);
 
         }
@@ -88,7 +130,7 @@ namespace Core
             db.Turmas.Remove(umaTurma);
 
 
-            Arquivos<Armazenar>.Salvar(db);
+            Arquivos.Salvar(db);
             return (true, umaTurma);
 
 
