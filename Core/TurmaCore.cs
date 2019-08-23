@@ -47,7 +47,7 @@ namespace Core
             return (true, _turma);
         }
 
-        public dynamic CadastrarAlunoProfessor(int idTurma, string idProfessor)
+        public dynamic CadastrarTurmaProfessor(int idTurma, string idProfessor)
         {
             if (!db.Turmas.Any(t => t.Id == idTurma))
                 return (false, "Não há uma turma registrada com este Id");
@@ -135,19 +135,12 @@ namespace Core
 
             Arquivos.Salvar(db);
             return (true, umaTurma);
-
-
         }
 
-        private bool ValidaProf(Professor professor)
-        {
-            if (db.lstProfessores.SingleOrDefault(c => c.Id == professor.Id) == null) return false;
-            return true;
-        }
-        private bool ValidaAluno(Aluno aluno)
-        {
-            if (db.Alunos.SingleOrDefault(c => c.Id == aluno.Id) == null) return false;
-            return true;
-        }
+        private bool ValidaProf(Professor professor) => (db.lstProfessores.SingleOrDefault(c => c.Id == professor.Id) == null) ? true : false;
+          
+        private bool ValidaAluno(Aluno aluno) => (db.Alunos.SingleOrDefault(c => c.Id == aluno.Id) == null) ? true :  false;
+           
+        
     }
 }

@@ -23,6 +23,9 @@ namespace Model
             if (professor.Genero != null)
                 Genero = professor.Genero;
 
+            if (professor.Documento != null)
+                Documento = professor.Documento;
+
             if (professor.Endereco != null)
                 Endereco = professor.Endereco;
 

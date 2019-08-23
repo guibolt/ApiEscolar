@@ -21,6 +21,9 @@ namespace Model
             if (aluno.NomePai != null)
                 NomePai = aluno.NomePai;
 
+            if (aluno.Documento != null)
+                Documento = aluno.Documento;
+                
             if (aluno.Idade != 0)
                 Idade = aluno.Idade;
 
