@@ -9028,7 +9028,6 @@
       "path": "system.composition.attributedmodel/1.0.31",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/System.Composition.AttributedModel.dll",
@@ -9043,7 +9042,6 @@
       "path": "system.composition.convention/1.0.31",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/System.Composition.Convention.dll",
@@ -9086,7 +9084,6 @@
       "path": "system.composition.typedparts/1.0.31",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/System.Composition.TypedParts.dll",
@@ -13170,11 +13167,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Treinamento 5\\Desktop\\other\\ApiEscolar\\ApiEscolar\\ApiEscolar.csproj",
+      "projectUniqueName": "C:\\Users\\Treinamento 5\\Desktop\\Continue\\ApiEscolar\\ApiEscolar\\ApiEscolar.csproj",
       "projectName": "ApiEscolar",
-      "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\other\\ApiEscolar\\ApiEscolar\\ApiEscolar.csproj",
+      "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\Continue\\ApiEscolar\\ApiEscolar\\ApiEscolar.csproj",
       "packagesPath": "C:\\Users\\Treinamento 5\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Treinamento 5\\Desktop\\other\\ApiEscolar\\ApiEscolar\\obj\\",
+      "outputPath": "C:\\Users\\Treinamento 5\\Desktop\\Continue\\ApiEscolar\\ApiEscolar\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13193,11 +13190,11 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\Treinamento 5\\Desktop\\other\\ApiEscolar\\Core\\Core.csproj": {
-              "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\other\\ApiEscolar\\Core\\Core.csproj"
+            "C:\\Users\\Treinamento 5\\Desktop\\Continue\\ApiEscolar\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\Continue\\ApiEscolar\\Core\\Core.csproj"
             },
-            "C:\\Users\\Treinamento 5\\Desktop\\other\\ApiEscolar\\Model\\Model.csproj": {
-              "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\other\\ApiEscolar\\Model\\Model.csproj"
+            "C:\\Users\\Treinamento 5\\Desktop\\Continue\\ApiEscolar\\Model\\Model.csproj": {
+              "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\Continue\\ApiEscolar\\Model\\Model.csproj"
             }
           }
         }
