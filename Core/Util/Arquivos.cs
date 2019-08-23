@@ -6,11 +6,11 @@ using System.Text;
 
 namespace Core.Util
 {
-    public static class Arquivos<T>
+    public static class Arquivos
     {
 
         static string traj = AppDomain.CurrentDomain.BaseDirectory;
-        public static T Recuperar(T generico)
+        public static T Recuperar<T>(T generico)
         {
             try
             {
@@ -30,7 +30,7 @@ namespace Core.Util
 
             }
         }
-        public static void Salvar(T generico)
+        public static void Salvar<T>(T generico)
         {
 
             try

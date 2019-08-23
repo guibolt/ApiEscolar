@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Core;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Model;
 
@@ -20,7 +16,19 @@ namespace ApiEscolar.Controllers
             return (Core is false) ? BadRequest(Core) : Ok(Core);
 
         }
+        [HttpPost("{idTurma}/alunos/{idAluno}")]
+        public async Task<IActionResult> CadastarUmAluno([FromQuery] int idTurma, [FromQuery]string idAluno)
+        {
+            var Core = new TurmaCore().CadastrarAlunoTurma(idTurma,idAluno);
+            return (Core is false) ? BadRequest(Core) : Ok(Core);
+        }
 
+        [HttpPost("{idTurma}/professores/{idProfessor}")]
+        public async Task<IActionResult> CadastarUmProfessor([FromQuery] int idTurma, [FromQuery]string idProfessor)
+        {
+            var Core = new TurmaCore().CadastrarAlunoProfessor(idTurma, idProfessor);
+           return (Core is false) ? BadRequest(Core) : Ok(Core);
+        }
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
