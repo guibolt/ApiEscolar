@@ -52,10 +52,10 @@ namespace Core
 
             var umaTurma = db.Turmas.Find(t => t.Id == idTurma);
 
-            if(!db.Prfessores.Any(p => p.Id == idProfessor))
+            if(!db.lstProfessores.Any(p => p.Id == idProfessor))
                 return (false, "Não há um professor registrado com este Id");
 
-            var umProfessor = db.Prfessores.Find(p => p.Id == idProfessor);
+            var umProfessor = db.lstProfessores.Find(p => p.Id == idProfessor);
 
             umaTurma.Professores.Add(umProfessor);
             Arquivos.Salvar(db);

@@ -38,10 +38,11 @@ namespace Core
 
       
 
-            if (!Db.Prfessores.Exists(e => e.Documento.Equals(_professor.Documento)))
+            if (!Db.lstProfessores.Exists(e => e.Documento.Equals(_professor.Documento)))
             {
-                Db.Prfessores.Add(_professor);
+                Db.lstProfessores.Add(_professor);
                 Arquivos.Salvar(Db);
+
                 return _professor;
             }
                 return  "Já existe um professor com esse documento com esse ID." ;
@@ -49,7 +50,7 @@ namespace Core
         }
         public dynamic BuscarId(string Id)
         {
-            if (Db.Prfessores.Exists(e => e.Id.Equals(Id))) return Db.Prfessores.Single(e => e.Id.Equals(Id));
+            if (Db.lstProfessores.Exists(e => e.Id.Equals(Id))) return Db.lstProfessores.Single(e => e.Id.Equals(Id));
          
             return "Não existe nenhum professor com esse ID por favor insira um id válido.";
         }
@@ -57,16 +58,16 @@ namespace Core
         public dynamic BuscarTodos()
         {
 
-            if (Db.Prfessores.Any()) return Db.Prfessores;
+            if (Db.lstProfessores.Any()) return Db.lstProfessores;
 
             return "Não existe nenhum professor cadastrado, Por favor cadastre.";
         }
         public dynamic Atualizar(string id, Professor professor)
         {
-            if (!Db.Prfessores.Any(a => a.Id == id))
+            if (!Db.lstProfessores.Any(a => a.Id == id))
                 return "Não há um professor com este Id";
 
-            var umProfessor = Db.Prfessores.Find(a => a.Id == id);
+            var umProfessor = Db.lstProfessores.Find(a => a.Id == id);
 
 
             if (professor.Nome != null)
@@ -105,13 +106,15 @@ namespace Core
         }
         public dynamic Deletar(string Id)
         {
-            if (Db.Prfessores.Exists(e => e.Id.Equals(Id))) {
-                Db.Prfessores.Remove(Db.Prfessores.Single(e => e.Id.Equals(Id)));
-                Arquivos.Salvar(Db);
-                return "Professor deletado com Sucesso.";
-            }else if (Db.Prfessores.Any()) return "Não existe nenhum Professor Cadastrado para poder ser deletado.";
 
-            return "Não existe nenhum Professor com esse ID por favor tente novamente com um ID válido.";
+            if (Db.lstProfessores.Exists(e => e.Id.Equals(Id))) {
+                Db.lstProfessores.Remove(Db.lstProfessores.Single(e => e.Id.Equals(Id)));
+                Arquivos.Salvar(Db);
+
+                return "Professor deletado com Sucesso.";
+            }else if (Db.lstProfessores.Any(e => e.Id.Equals(Id))) return "Não existe nenhum Professor com esse ID por favor tente novamente com um ID válido.  ";
+
+            return "Não existe nenhum Professor Cadastrado para poder ser deletado.";
         }
     }
 }
