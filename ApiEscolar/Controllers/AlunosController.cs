@@ -15,11 +15,7 @@ namespace ApiForSales.Controllers
         public async Task<IActionResult> Post([FromBody] Aluno Aluno)
         {
             var Core = new AlunoCore(Aluno).Cadastrar();
-<<<<<<< HEAD
-            return (Core is string || Core is List<string>) ? BadRequest("Esse aluno já esta cadastrado") : Ok(Core);
-=======
-            return (Core is false) ? BadRequest(Core) : Ok(Core);
->>>>>>> Guilherme
+            return (Core is string || Core is List<string>) ? BadRequest("Esse aluno já esta cadastrado") : Ok(Core);;
          }
 
         [HttpGet("{id}")]
