@@ -16,8 +16,8 @@ namespace Core
             db = Arquivos.Recuperar(db);
             if (db == null) db = new Armazenar();
 
-            RuleFor(c => c.Alunos).NotNull().NotEmpty();
-            RuleFor(c => c.Professores).NotNull();
+            RuleFor(c => c.Alunos).NotNull().NotEmpty().ForEach(d=>d.Must(ValidaAluno));
+            RuleFor(c => c.Professores).NotNull().NotEmpty().ForEach(d => d.Must(ValidaProf));
             RuleFor(c => c.Id).NotEmpty();
         }
         public TurmaCore(Turma turma)
@@ -37,54 +37,14 @@ namespace Core
             if (db.Turmas.Any(a => a.Id == _turma.Id))
                 return (false, "Essa turma ja está cadastrada!");
 
+            _turma.Alunos.ForEach(c => c.TurmaAluno(db.Alunos.Single(d => d.Id == c.Id)));
+            _turma.Professores.ForEach(c => c.TurmaProf(db.Prfessores.Single(d => d.Id == c.Id)));
 
             db.Turmas.Add(_turma);
 
             Arquivos.Salvar(db);
 
             return (true, _turma);
-        }
-
-        public dynamic CadastrarAlunoProfessor(int idTurma, string idProfessor)
-        {
-            if (!db.Turmas.Any(t => t.Id == idTurma))
-                return (false, "Não há uma turma registrada com este Id");
-
-            var umaTurma = db.Turmas.Find(t => t.Id == idTurma);
-
-            if(!db.Prfessores.Any(p => p.Id == idProfessor))
-                return (false, "Não há um professor registrado com este Id");
-
-            var umProfessor = db.Prfessores.Find(p => p.Id == idProfessor);
-
-            umaTurma.Professores.Add(umProfessor);
-            Arquivos.Salvar(db);
-
-            return (true, umaTurma);
-
-        }
-
-        public dynamic CadastrarAlunoTurma(int idTurma, string idAluno)
-        {
-        
-
-            if (!db.Turmas.Any(t => t.Id == idTurma))
-                return (false, "Não há uma turma registrada com este Id");
-
-            var umaTurma = db.Turmas.Find(t => t.Id == idTurma);
-
-
-            if (!db.Alunos.Any(a => a.Id == idAluno))
-                return (false, "Não há um aluno registrado com este id");
-
-            var umAluno = db.Alunos.Find(a => a.Id == idAluno);
-
-
-            umaTurma.Alunos.Add(umAluno);
-
-            Arquivos.Salvar(db);
-
-            return (true, umaTurma);
         }
 
         public dynamic BuscarId(int id)
@@ -134,6 +94,17 @@ namespace Core
             return (true, umaTurma);
 
 
+        }
+
+        private bool ValidaProf(Professor professor)
+        {
+            if (db.Prfessores.SingleOrDefault(c => c.Id == professor.Id) == null) return false;
+            return true;
+        }
+        private bool ValidaAluno(Aluno aluno)
+        {
+            if (db.Alunos.SingleOrDefault(c => c.Id == aluno.Id) == null) return false;
+            return true;
         }
     }
 }
