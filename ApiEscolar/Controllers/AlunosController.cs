@@ -16,7 +16,6 @@ namespace ApiForSales.Controllers
         {
             var Core = new AlunoCore(Aluno).Cadastrar();
             return (Core is false) ? BadRequest(Core) : Ok(Core);
-
          }
 
         [HttpGet("{id}")]

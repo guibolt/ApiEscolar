@@ -47,6 +47,51 @@ namespace Core
             return (true, _turma);
         }
 
+<<<<<<< HEAD
+=======
+        public dynamic CadastrarAlunoProfessor(int idTurma, string idProfessor)
+        {
+            if (!db.Turmas.Any(t => t.Id == idTurma))
+                return (false, "Não há uma turma registrada com este Id");
+
+            var umaTurma = db.Turmas.Find(t => t.Id == idTurma);
+
+            if(!db.lstProfessores.Any(p => p.Id == idProfessor))
+                return (false, "Não há um professor registrado com este Id");
+
+            var umProfessor = db.lstProfessores.Find(p => p.Id == idProfessor);
+
+            umaTurma.Professores.Add(umProfessor);
+            Arquivos.Salvar(db);
+
+            return (true, umaTurma);
+
+        }
+
+        public dynamic CadastrarAlunoTurma(int idTurma, string idAluno)
+        {
+        
+
+            if (!db.Turmas.Any(t => t.Id == idTurma))
+                return (false, "Não há uma turma registrada com este Id");
+
+            var umaTurma = db.Turmas.Find(t => t.Id == idTurma);
+
+
+            if (!db.Alunos.Any(a => a.Id == idAluno))
+                return (false, "Não há um aluno registrado com este id");
+
+            var umAluno = db.Alunos.Find(a => a.Id == idAluno);
+
+
+            umaTurma.Alunos.Add(umAluno);
+
+            Arquivos.Salvar(db);
+
+            return (true, umaTurma);
+        }
+
+>>>>>>> dbf244a2686844434cb5c361630a8bb9f579bbcc
         public dynamic BuscarId(int id)
         {
             if (!db.Turmas.Any(a => a.Id == id))
