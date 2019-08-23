@@ -13,7 +13,7 @@ namespace Core
         public ProfessorCore(Professor professor)
         {
             _professor = professor;
-            Db = Arquivos<Armazenar>.Recuperar(Db);
+            Db = Arquivos.Recuperar(Db);
             if (Db == null) Db = new Armazenar();
             RuleFor(e => e.Nome).MinimumLength(3).NotNull().WithMessage("O nome deve ser preenchido e deve ter o mínimo de 3 caracteres.");
             RuleFor(e => e.Genero).NotNull().MinimumLength(5).WithMessage("O genero não pode ser nulo e deve conter no mínimo 3 caracteres.");
@@ -26,7 +26,7 @@ namespace Core
         }
 
         public ProfessorCore(){
-             Db = Arquivos<Armazenar>.Recuperar(Db);
+             Db = Arquivos.Recuperar(Db);
             if (Db == null) Db = new Armazenar();
         }
 
@@ -41,7 +41,8 @@ namespace Core
             if (!Db.lstProfessores.Exists(e => e.Documento.Equals(_professor.Documento)))
             {
                 Db.lstProfessores.Add(_professor);
-                Arquivos<Armazenar>.Salvar(Db);
+                Arquivos.Salvar(Db);
+
                 return _professor;
             }
                 return  "Já existe um professor com esse documento com esse ID." ;
@@ -99,15 +100,17 @@ namespace Core
             if (professor.Salario == 0.0)
                 umProfessor.Salario = professor.Salario;
 
-            Arquivos<Armazenar>.Salvar(Db);
+            Arquivos.Salvar(Db);
 
             return umProfessor;
         }
         public dynamic Deletar(string Id)
         {
+
             if (Db.lstProfessores.Exists(e => e.Id.Equals(Id))) {
                 Db.lstProfessores.Remove(Db.lstProfessores.Single(e => e.Id.Equals(Id)));
-                Arquivos<Armazenar>.Salvar(Db);
+                Arquivos.Salvar(Db);
+
                 return "Professor deletado com Sucesso.";
             }else if (Db.lstProfessores.Any(e => e.Id.Equals(Id))) return "Não existe nenhum Professor com esse ID por favor tente novamente com um ID válido.  ";
 
