@@ -51,7 +51,6 @@ namespace Core
         public dynamic BuscarId(string Id)
         {
             if (Db.lstProfessores.Exists(e => e.Id.Equals(Id))) return Db.lstProfessores.Single(e => e.Id.Equals(Id));
-         
             return "Não existe nenhum professor com esse ID por favor insira um id válido.";
         }
 
@@ -79,7 +78,10 @@ namespace Core
             if (professor.Genero != null)
                 umProfessor.Genero = professor.Genero;
 
-            if (professor.Endereco.NumeroCasa != 0)
+            if (professor.Endereco != null)
+                umProfessor.Endereco = professor.Endereco;
+            
+            if (professor.Endereco.NumeroCasa > 0)
                 umProfessor.Endereco.NumeroCasa = professor.Endereco.NumeroCasa;
 
             if (professor.Endereco.Complemento != null)
@@ -94,10 +96,11 @@ namespace Core
             if (professor.Email != null)
                 umProfessor.Email = professor.Email;
 
-            if (!professor.Materias.Any())
+            if (professor.Materias.Count() >= 0 )
                 umProfessor.Materias = professor.Materias;
 
-            if (professor.Salario == 0.0)
+
+            if (professor.Salario != 0.0)
                 umProfessor.Salario = professor.Salario;
 
             Arquivos.Salvar(Db);

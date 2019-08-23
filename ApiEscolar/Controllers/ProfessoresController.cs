@@ -36,7 +36,7 @@ namespace ApiForSales.Controllers
         public async Task<IActionResult> Put([FromBody]Professor professor, string id)
         {
             var atualizar = new ProfessorCore().Atualizar(id, professor);
-            return (atualizar is string)? BadRequest(atualizar) : Ok(atualizar);
+            return (atualizar is string)? BadRequest(atualizar) : Ok(atualizar as Professor);
         }
 
         [HttpDelete("{id}")]

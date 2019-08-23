@@ -11,6 +11,6 @@ namespace Model
         public string Genero { get; set; }
         public string Email { get; set; }
         public DateTime DataCadastro { get; set; } = DateTime.Now;
-        public Endereco Endereco { get; set; }
+        public Endereco Endereco { get; set; } = new Endereco();
     }
 }
