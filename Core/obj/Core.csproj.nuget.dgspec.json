@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "C:\\Users\\Treinamento 2\\Desktop\\ApiEscolar\\Core\\Core.csproj": {}
   },
   "projects": {
@@ -13,29 +12,12 @@
         "projectPath": "C:\\Users\\Treinamento 2\\Desktop\\ApiEscolar\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\Treinamento 2\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Treinamento 2\\Desktop\\ApiEscolar\\Core\\obj\\",
-=======
-    "C:\\Users\\Treinamento 6\\Desktop\\ApiEscola\\ApiEscolar\\Core\\Core.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\Treinamento 6\\Desktop\\ApiEscola\\ApiEscolar\\Core\\Core.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Treinamento 6\\Desktop\\ApiEscola\\ApiEscolar\\Core\\Core.csproj",
-        "projectName": "Core",
-        "projectPath": "C:\\Users\\Treinamento 6\\Desktop\\ApiEscola\\ApiEscolar\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\Treinamento 6\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Treinamento 6\\Desktop\\ApiEscola\\ApiEscolar\\Core\\obj\\",
->>>>>>> dbf244a2686844434cb5c361630a8bb9f579bbcc
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-<<<<<<< HEAD
           "C:\\Users\\Treinamento 2\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-          "C:\\Users\\Treinamento 6\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> dbf244a2686844434cb5c361630a8bb9f579bbcc
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -48,13 +30,8 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-<<<<<<< HEAD
               "C:\\Users\\Treinamento 2\\Desktop\\ApiEscolar\\Model\\Model.csproj": {
                 "projectPath": "C:\\Users\\Treinamento 2\\Desktop\\ApiEscolar\\Model\\Model.csproj"
-=======
-              "C:\\Users\\Treinamento 6\\Desktop\\ApiEscola\\ApiEscolar\\Model\\Model.csproj": {
-                "projectPath": "C:\\Users\\Treinamento 6\\Desktop\\ApiEscola\\ApiEscolar\\Model\\Model.csproj"
->>>>>>> dbf244a2686844434cb5c361630a8bb9f579bbcc
               }
             }
           }
@@ -87,7 +64,6 @@
         }
       }
     },
-<<<<<<< HEAD
     "C:\\Users\\Treinamento 2\\Desktop\\ApiEscolar\\Model\\Model.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -96,26 +72,12 @@
         "projectPath": "C:\\Users\\Treinamento 2\\Desktop\\ApiEscolar\\Model\\Model.csproj",
         "packagesPath": "C:\\Users\\Treinamento 2\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Treinamento 2\\Desktop\\ApiEscolar\\Model\\obj\\",
-=======
-    "C:\\Users\\Treinamento 6\\Desktop\\ApiEscola\\ApiEscolar\\Model\\Model.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Treinamento 6\\Desktop\\ApiEscola\\ApiEscolar\\Model\\Model.csproj",
-        "projectName": "Model",
-        "projectPath": "C:\\Users\\Treinamento 6\\Desktop\\ApiEscola\\ApiEscolar\\Model\\Model.csproj",
-        "packagesPath": "C:\\Users\\Treinamento 6\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Treinamento 6\\Desktop\\ApiEscola\\ApiEscolar\\Model\\obj\\",
->>>>>>> dbf244a2686844434cb5c361630a8bb9f579bbcc
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-<<<<<<< HEAD
           "C:\\Users\\Treinamento 2\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-          "C:\\Users\\Treinamento 6\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> dbf244a2686844434cb5c361630a8bb9f579bbcc
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
