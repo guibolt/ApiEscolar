@@ -68,40 +68,7 @@ namespace Core
 
             var umProfessor = Db.lstProfessores.Find(a => a.Id == id);
 
-
-            if (professor.Nome != null)
-                umProfessor.Nome = professor.Nome;
-
-            if (professor.Idade != 0)
-                umProfessor.Idade = professor.Idade;
-
-            if (professor.Genero != null)
-                umProfessor.Genero = professor.Genero;
-
-            if (professor.Endereco != null)
-                umProfessor.Endereco = professor.Endereco;
-            
-            if (professor.Endereco.NumeroCasa > 0)
-                umProfessor.Endereco.NumeroCasa = professor.Endereco.NumeroCasa;
-
-            if (professor.Endereco.Complemento != null)
-                umProfessor.Endereco.Complemento = professor.Endereco.Complemento;
-
-            if (professor.Endereco.Cep != null)
-                umProfessor.Endereco.Cep = professor.Endereco.Cep;
-
-            if (professor.Endereco.Bairro != null)
-                umProfessor.Endereco.Bairro = professor.Endereco.Bairro;
-
-            if (professor.Email != null)
-                umProfessor.Email = professor.Email;
-
-            if (professor.Materias.Count() >= 0 )
-                umProfessor.Materias = professor.Materias;
-
-
-            if (professor.Salario != 0.0)
-                umProfessor.Salario = professor.Salario;
+            umProfessor.TurmaProf(professor);
 
             Arquivos.Salvar(Db);
 
